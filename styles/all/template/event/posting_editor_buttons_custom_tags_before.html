@@ -1,9 +1,9 @@
-<!-- BEGIN custom_tags -->
-<button type="button" class="button button-secondary bbcode-{custom_tags.BBCODE_TAG_CLEAN}" name="addbbcode{custom_tags.BBCODE_ID}" value="{custom_tags.BBCODE_TAG}" onclick="bbstyle({custom_tags.BBCODE_ID})" title="{{ custom_tags.BBCODE_HELPLINE }}">
-	<!-- IF custom_tags.BBCODE_FONT_ICON != '' -->
-		<i class="icon fa-{{ custom_tags.BBCODE_FONT_ICON }} fa-fw" aria-hidden="true"></i>
+<!-- BEGIN custom_bbcodes -->
+<button type="button" class="button button-secondary bbcode-{custom_bbcodes.BBCODE_TAG_CLEAN}" name="addbbcode{custom_bbcodes.BBCODE_ID}" value="{custom_bbcodes.BBCODE_TAG}" onclick="bbstyle({custom_bbcodes.BBCODE_ID})" title="{{ custom_bbcodes.BBCODE_HELPLINE }}">
+	<!-- IF custom_bbcodes.BBCODE_FONT_ICON != '' -->
+		<i class="icon fa-{{ custom_bbcodes.BBCODE_FONT_ICON }} fa-fw" aria-hidden="true"></i>
 	<!-- ELSE -->
-		{{ custom_tags.BBCODE_TAG }}
+		{{ custom_bbcodes.BBCODE_TAG }}
 	<!-- ENDIF -->
 </button>
-<!-- END custom_tags -->
+<!-- END custom_bbcodes -->

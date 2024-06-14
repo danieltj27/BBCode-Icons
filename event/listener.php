@@ -57,6 +57,7 @@ class listener implements EventSubscriberInterface {
 			'core.user_setup'							=> 'add_languages',
 			'core.acp_bbcodes_edit_add'					=> 'add_acp_template_vars',
 			'core.acp_bbcodes_modify_create'			=> 'update_acp_bbcode_data',
+			'core.display_custom_bbcodes_modify_sql'	=> 'update_bbcode_sql_array',
 			'core.display_custom_bbcodes_modify_row'	=> 'update_editor_template_vars',
 		];
 
@@ -99,16 +100,19 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Update the bbcode data for add/edit
+	 * Update ACP SQL array
 	 */
 	public function update_acp_bbcode_data( $event ) {
 
-		// Clean the input
+		/**
+		 * 1. fetch the value from the request
+		 * 2. limit to 50 characters
+		 * 3. remove anything that isn't a to z, 1 to 9 and hyphens
+		 */
 		$bbcode_font_icon = $this->request->variable( 'bbcode_font_icon', '' );
 		$bbcode_font_icon = substr( $bbcode_font_icon, 0, 50 );
 		$bbcode_font_icon = preg_replace( "/[^A-Za-z0-9-]/", '', $bbcode_font_icon );
 
-		// Add to update array
 		$event[ 'sql_ary' ] = array_merge( $event[ 'sql_ary' ], [
 			'bbcode_font_icon' => $bbcode_font_icon,
 		] );
@@ -116,31 +120,28 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Update the post editor template vars
+	 * Add the new field to the SQL array
+	 */
+	public function update_bbcode_sql_array( $event ) {
+
+		$event[ 'sql_ary' ] = array_merge( $event[ 'sql_ary' ], [
+			'SELECT' => $event[ 'sql_ary' ][ 'SELECT' ] . ', b.bbcode_font_icon',
+		] );
+
+	}
+
+	/**
+	 * Add icon to template vars
 	 */
 	public function update_editor_template_vars( $event ) {
 
-		$bbcode_id = $event[ 'row' ][ 'bbcode_id' ];
-
-		$sql = 'SELECT * FROM ' . BBCODES_TABLE . ' WHERE ' . $this->database->sql_build_array( 'SELECT', [
-			'bbcode_id' => $bbcode_id,
+		$event[ 'custom_tags' ] = array_merge( $event[ 'custom_tags' ], [
+			'BBCODE_FONT_ICON' => $event[ 'row' ][ 'bbcode_font_icon' ],
 		] );
 
-		$result = $this->database->sql_query( $sql );
-		$bbcode = $this->database->sql_fetchrow( $result );
-		$this->database->sql_freeresult( $result );
+		$custom_bbcodes = $event[ 'custom_tags' ];
 
-		if ( ! empty( $bbcode ) ) {
-
-			$event[ 'custom_tags' ] = array_merge( $event[ 'custom_tags' ], [
-				'BBCODE_FONT_ICON' => $bbcode[ 'bbcode_font_icon' ],
-			] );
-
-			$event[ 'row' ] = array_merge( $event[ 'row' ], [
-				'bbcode_font_icon' => $bbcode[ 'bbcode_font_icon' ],
-			] );
-
-		}
+		$this->template->assign_block_vars( 'custom_bbcodes', $custom_bbcodes );
 
 	}
 
