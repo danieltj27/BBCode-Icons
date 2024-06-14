@@ -1,6 +1,6 @@
 # BBCode Icons
 
-Adds a custom icon to your custom BBCodes on your board.
+Add a Font Awesome icon to your custom BBCode buttons.
 
 ## Features
 
