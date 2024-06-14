@@ -1,0 +1,10 @@
+services:
+    danieltj.bbcodeicons.listener:
+        class: danieltj\bbcodeicons\event\listener
+        arguments:
+            - '@dbal.conn'
+            - '@language'
+            - '@request'
+            - '@template'
+        tags:
+            - { name: event.listener }

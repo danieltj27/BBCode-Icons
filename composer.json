@@ -1,0 +1,24 @@
+{
+    "name": "danieltj/bbcodeicons",
+    "type": "phpbb-extension",
+    "description": "Adds a custom icon to your custom BBCodes on your board.",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniel James",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0.0",
+        "phpbb/phpbb": ">=3.3.0"
+    },
+    "extra": {
+        "display-name": "BBCode Icons",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.3.12"
+        }
+    }
+}
