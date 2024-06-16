@@ -58,7 +58,7 @@ class listener implements EventSubscriberInterface {
 			'core.acp_bbcodes_edit_add'					=> 'add_acp_template_vars',
 			'core.acp_bbcodes_modify_create'			=> 'update_acp_bbcode_data',
 			'core.display_custom_bbcodes_modify_sql'	=> 'update_bbcode_sql_array',
-			'core.display_custom_bbcodes_modify_row'	=> 'update_editor_template_vars',
+			'core.display_custom_bbcodes_modify_row'	=> 'add_editor_template_vars',
 		];
 
 	}
@@ -133,7 +133,7 @@ class listener implements EventSubscriberInterface {
 	/**
 	 * Add icon to template vars
 	 */
-	public function update_editor_template_vars( $event ) {
+	public function add_editor_template_vars( $event ) {
 
 		$event[ 'custom_tags' ] = array_merge( $event[ 'custom_tags' ], [
 			'BBCODE_FONT_ICON' => $event[ 'row' ][ 'bbcode_font_icon' ],
