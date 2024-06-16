@@ -2,6 +2,15 @@
 	<legend>{L_ACP_BBCODE_FONT_ICON_LEGEND}</legend>
 	<dl>
 		<dt><label for="bbcode_font_icon">{L_ACP_BBCODE_FONT_ICON_LABEL}</label><br /><span>{L_ACP_BBCODE_FONT_ICON_EXPLAIN}</span></dt>
-		<dd><input type="text" name="bbcode_font_icon" id="bbcode_font_icon" value="{{ BBCODE_FONT_ICON }}" /></dd>
+		<dd>
+			<input type="text" name="bbcode_font_icon" id="bbcode_font_icon" value="{{ BBCODE_FONT_ICON }}" />
+			<i id="bbcode_icon_preview" class="icon fa-{{ BBCODE_FONT_ICON }}" style="font-size: 16px;" aria-hidden="true"></i>
+		</dd>
 	</dl>
 </fieldset>
+
+<script type="text/javascript">
+document.addEventListener( 'keyup', function( e ) {
+	document.getElementById( 'bbcode_icon_preview' ).classList = "icon fa-" + document.getElementById( 'bbcode_font_icon' ).value;
+});
+</script>
