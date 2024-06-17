@@ -59,6 +59,7 @@ class listener implements EventSubscriberInterface {
 			'core.acp_bbcodes_modify_create'			=> 'update_acp_bbcode_data',
 			'core.display_custom_bbcodes_modify_sql'	=> 'update_bbcode_sql_array',
 			'core.display_custom_bbcodes_modify_row'	=> 'add_editor_template_vars',
+			'core.display_custom_bbcodes'				=> 'delete_custom_tags_vars',
 		];
 
 	}
@@ -142,6 +143,15 @@ class listener implements EventSubscriberInterface {
 		$custom_bbcodes = $event[ 'custom_tags' ];
 
 		$this->template->assign_block_vars( 'custom_bbcodes', $custom_bbcodes );
+
+	}
+
+	/**
+	 * Delete the old custom tags block vars
+	 */
+	public function delete_custom_tags_vars() {
+
+		$this->template->destroy_block_vars( 'custom_tags' );
 
 	}
 
