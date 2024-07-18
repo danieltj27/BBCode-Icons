@@ -11,7 +11,7 @@ namespace danieltj\bbcodeicons;
 class ext extends \phpbb\extension\base {
 
 	/**
-	 * Require 3.3.x or later
+	 * Require version 3.3 or later.
 	 */
 	public function is_enableable() {
 

@@ -65,7 +65,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add langauge files
+	 * Add languages
 	 */
 	public function add_languages( $event ) {
 
@@ -74,7 +74,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add the ACP template vars
+	 * Add ACP template variables
 	 */
 	public function add_acp_template_vars( $event ) {
 
@@ -105,11 +105,6 @@ class listener implements EventSubscriberInterface {
 	 */
 	public function update_acp_bbcode_data( $event ) {
 
-		/**
-		 * 1. fetch the value from the request
-		 * 2. limit to 50 characters
-		 * 3. remove anything that isn't a to z, 1 to 9 and hyphens
-		 */
 		$bbcode_font_icon = $this->request->variable( 'bbcode_font_icon', '' );
 		$bbcode_font_icon = substr( $bbcode_font_icon, 0, 50 );
 		$bbcode_font_icon = preg_replace( "/[^A-Za-z0-9-]/", '', $bbcode_font_icon );
@@ -121,7 +116,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add the new field to the SQL array
+	 * Add field to SQL array
 	 */
 	public function update_bbcode_sql_array( $event ) {
 
@@ -132,7 +127,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add icon to template vars
+	 * Add icon to template variables
 	 */
 	public function add_editor_template_vars( $event ) {
 
@@ -147,7 +142,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Delete the old custom tags block vars
+	 * Remove old BBCode template black variable
 	 */
 	public function delete_custom_tags_vars() {
 

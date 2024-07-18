@@ -11,16 +11,16 @@ namespace danieltj\bbcodeicons\migrations;
 class install extends \phpbb\db\migration\migration {
 
 	/**
-	 * Require at least 3.3.x version.
+	 * Require version 3.3 or later.
 	 */
 	static public function depends_on() {
 
-		return [ '\phpbb\db\migration\data\v33x\v331rc1' ];
+		return [ '\phpbb\db\migration\data\v330\v330' ];
 
 	}
 
 	/**
-	 * Install database changes
+	 * Add new column.
 	 */
 	public function update_schema() {
 
@@ -37,7 +37,7 @@ class install extends \phpbb\db\migration\migration {
 	}
 
 	/**
-	 * Uninstall database changes
+	 * Remove new column.
 	 */
 	public function revert_schema() {
 
