@@ -3,7 +3,7 @@
 /**
  * @package BBCode Icons
  * @copyright (c) 2024 Daniel James
- * @license https://opensource.org/license/mit MIT
+ * @license https://opensource.org/license/gpl-2-0 GPL v2
  */
 
 namespace danieltj\bbcodeicons\event;

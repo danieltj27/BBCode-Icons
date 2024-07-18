@@ -14,4 +14,4 @@ Add a Font Awesome icon to your custom BBCode buttons.
 
 ## Licence
 
-MIT
+GPL v2
