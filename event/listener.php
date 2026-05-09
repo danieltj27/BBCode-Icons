@@ -65,7 +65,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add languages
+	 * phpbb/user
 	 */
 	public function add_languages( $event ) {
 
@@ -76,7 +76,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add ACP template variables
+	 * includes/acp/acp_bbcodes:main
 	 */
 	public function add_acp_template_vars( $event ) {
 
@@ -103,12 +103,12 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Update ACP SQL array
+	 * includes/acp/acp_bbcodes:main
 	 */
 	public function update_acp_bbcode_data( $event ) {
 
 		$bbcode_font_icon = $this->request->variable( 'bbcode_font_icon', '' );
-		$bbcode_font_icon = substr( $bbcode_font_icon, 0, 50 );
+		$bbcode_font_icon = substr( $bbcode_font_icon, 0, 32 );
 		$bbcode_font_icon = preg_replace( "/[^A-Za-z0-9-]/", '', $bbcode_font_icon );
 
 		$event[ 'sql_ary' ] = array_merge( $event[ 'sql_ary' ], [
@@ -118,7 +118,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add field to SQL array
+	 * includes/functions_display:display_custom_bbcodes
 	 */
 	public function update_bbcode_sql_array( $event ) {
 
@@ -129,7 +129,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Add icon to template variables
+	 * includes/functions_display:display_custom_bbcodes
 	 */
 	public function add_editor_template_vars( $event ) {
 
@@ -144,7 +144,7 @@ class listener implements EventSubscriberInterface {
 	}
 
 	/**
-	 * Remove old BBCode template black variable
+	 * includes/functions_display:display_custom_bbcodes
 	 */
 	public function delete_custom_tags_vars() {
 
