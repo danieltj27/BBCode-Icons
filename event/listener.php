@@ -2,8 +2,8 @@
 
 /**
  * @package BBCode Icons
- * @copyright (c) 2024 Daniel James
- * @license https://opensource.org/license/gpl-2-0 GPL v2
+ * @copyright (c) 2026 Daniel James
+ * @license https://opensource.org/license/gpl-2-0
  */
 
 namespace danieltj\bbcodeicons\event;
@@ -54,7 +54,7 @@ class listener implements EventSubscriberInterface {
 	static public function getSubscribedEvents() {
 
 		return [
-			'core.user_setup'							=> 'add_languages',
+			'core.user_setup_after'						=> 'add_languages',
 			'core.acp_bbcodes_edit_add'					=> 'add_acp_template_vars',
 			'core.acp_bbcodes_modify_create'			=> 'update_acp_bbcode_data',
 			'core.display_custom_bbcodes_modify_sql'	=> 'update_bbcode_sql_array',
@@ -69,7 +69,9 @@ class listener implements EventSubscriberInterface {
 	 */
 	public function add_languages( $event ) {
 
-		$this->language->add_lang( [ 'common' ], 'danieltj/bbcodeicons' );
+		$this->language->add_lang( [
+			'common'
+		], 'danieltj/bbcodeicons' );
 
 	}
 

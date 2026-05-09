@@ -2,8 +2,8 @@
 
 /**
  * @package BBCode Icons
- * @copyright (c) 2024 Daniel James
- * @license https://opensource.org/license/gpl-2-0 GPL v2
+ * @copyright (c) 2026 Daniel James
+ * @license https://opensource.org/license/gpl-2-0
  */
 
 if ( ! defined( 'IN_PHPBB' ) ) {
