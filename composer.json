@@ -2,7 +2,7 @@
     "name": "danieltj/bbcodeicons",
     "type": "phpbb-extension",
     "description": "Add a Font Awesome icon to your custom BBCode buttons.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "GPL-2.0-only",
     "authors": [
         {
@@ -18,7 +18,7 @@
     "extra": {
         "display-name": "BBCode Icons",
         "soft-require": {
-            "phpbb/phpbb": ">=3.3.12"
+            "phpbb/phpbb": ">=3.3.16"
         }
     }
 }
